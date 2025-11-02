@@ -1,68 +1,79 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  position: relative;
+  /* Remove incorrect path, use correct one */
+  /* Use a pseudo-element for opacity */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('/public/urja-bg-1.png') no-repeat center center fixed;
+  background-size: cover;
+  opacity: 0.87;
+  /* Reduce opacity */
+  pointer-events: none;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.urja-title {
+  position: absolute;
+  /* Increase the top value to move the title below the navbar */
+  top: 100px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 5rem;
+  font-family: 'Times New Roman', Times, serif;
+  color: #fff;
+  text-shadow: 0 2px 16px #000, 0 0px 2px #ff3c00, 0 0px 2px #00cfff;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+}
+
+/* src/index.css or src/App.css */
+
+/*
+  The common class for all glowing main headings.
+  This allows us to reuse the same style without repeating code.
+*/
+.main-glowing-heading {
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+  letter-spacing: 5px;
+  /* Add the base animation here */
+  animation: headingGlow 2.5s ease-in-out infinite alternate;
+}
+
+/* Base keyframe animation for the glow effect */
+@keyframes headingGlow {
+  from {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px rgba(255, 255, 255, 0.7),
+      0 0 15px rgba(255, 68, 0, 0.3),
+      0 0 20px rgba(0, 170, 255, 0.3);
   }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+
+  to {
+    text-shadow:
+      0 0 8px #fff,
+      0 0 15px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 68, 0, 0.5),
+      0 0 25px rgba(0, 170, 255, 0.5);
   }
 }
