@@ -4,11 +4,9 @@ import './Sports.css';
 // Import all the sport content components
 import AthleticsRules from '../Rulebook/Athletics.jsx';
 import BadmintonRules from '../Rulebook/Badminton.jsx';
-import BasketballRules from '../Rulebook/Basketball.jsx';
 import ChessRules from '../Rulebook/Chess.jsx';
 import CricketRules from '../Rulebook/Cricket.jsx';
 import FootballRules from '../Rulebook/Football.jsx';
-import HockeyRules from '../Rulebook/Hockey.jsx';
 import LawnTennisRules from '../Rulebook/LawnTennis.jsx';
 import TableTennisRules from '../Rulebook/TableTennis.jsx';
 import VolleyballRules from '../Rulebook/Volleyball.jsx';
@@ -23,11 +21,10 @@ function Sports() {
     const sportsList = [
         { name: 'Athletics', emoji: '🏃‍♂️' },
         { name: 'Badminton', emoji: '🏸' },
-        { name: 'Basketball', emoji: '🏀' },
-        { name: 'Chess', emoji: '♟️' },
+    { name: 'Chess', emoji: '♟️' },
         { name: 'Cricket', emoji: '🏏' },
         { name: 'Football', emoji: '⚽' },
-        { name: 'Hockey', emoji: '🏑' },
+        
         { name: 'Lawn Tennis', emoji: '🎾' },
         { name: 'Table Tennis', emoji: '🏓' },
         { name: 'Volleyball', emoji: '🏐' },
@@ -37,11 +34,10 @@ function Sports() {
     const SportComponents = {
         Athletics: AthleticsRules,
         Badminton: BadmintonRules,
-        Basketball: BasketballRules,
-        Chess: ChessRules,
+    Chess: ChessRules,
         Cricket: CricketRules,
         Football: FootballRules,
-        Hockey: HockeyRules,
+        
         'Lawn Tennis': LawnTennisRules,
         'Table Tennis': TableTennisRules,
         Volleyball: VolleyballRules,
