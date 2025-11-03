@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        // Get the path the user tried to access (e.g., /branch-leaderboard)
+        var path = window.location.pathname;
+
+        // Redirect all 404 pages back to the index page, 
+        // while keeping the original path intact.
+        // The client-side router will then handle the path correctly.
+        window.location.replace('/index.html#' + path);
+    </script>
+</head>
+
+<body>
+    <p>Redirecting...</p>
+</body>
+
+</html>

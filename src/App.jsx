@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'; // Import useLocation
-import Home from './components/Home/Home.jsx';
-import Team from './components/Team/Team.jsx';
-import Sports from './components/Sports/Sports.jsx';
-import Pool from './components/Pool/Pool.jsx';
-import PointsTable from './components/PointsTable/PointsTable.jsx';
-import Navbar from './components/Navbar/Navbar.jsx';
-import LeaderBoard from './components/LeaderBoard/LeaderBoard.jsx';
-import './App.css';
-import Gallery from './components/Gallery/Gallery.jsx';
-import Footer from './components/Footer/Footer.jsx';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom'; // HashRouter is correct for GitHub Pages fix
+import Home from '../components/Home/Home.jsx';
+import Team from '../components/Team/Team.jsx';
+import Sports from '../components/Sports/Sports.jsx';
+import Pool from '../components/Pool/Pool.jsx';
+import PointsTable from '../components/PointsTable/PointsTable.jsx';
+import Navbar from '../components/Navbar/Navbar.jsx';
+import LeaderBoard from '../components/LeaderBoard/LeaderBoard.jsx';
+import '../App.css';
+import Gallery from '../components/Gallery/Gallery.jsx';
+import Footer from '../components/Footer/Footer.jsx';
 
 // Create a new component to handle conditional rendering
 function AppContent() {
@@ -19,6 +19,8 @@ function AppContent() {
   const location = useLocation();
 
   // Determine if the current path is the home page ("/")
+  // Note: HashRouter handles paths slightly differently, but location.pathname 
+  // still works for determining the current route component is being displayed.
   const isHomePage = location.pathname === '/';
 
   return (
@@ -42,7 +44,7 @@ function AppContent() {
 
 function App() {
   return (
-    // The Router must wrap any component that uses useLocation
+    // We use HashRouter here to fix the 404 issue on GitHub Pages
     <Router>
       <AppContent />
     </Router>
