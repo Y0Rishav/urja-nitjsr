@@ -6,7 +6,7 @@ export const athletics100m = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -22,7 +22,7 @@ export const athletics200m = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -38,7 +38,7 @@ export const athletics400m = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -54,7 +54,7 @@ export const athletics800m = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -70,7 +70,7 @@ export const athletics1500m = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -86,87 +86,7 @@ export const athleticsDiscus = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
-            ['5', 'CE', '0'],
-            ['6', 'MME', '0'],
-            ['7', 'ME', '0'],
-            ['8', 'PG', '0']
-        ]
-    }
-};
-
-export const athleticsLongJump = {
-    pointsTable: {
-        headings: ['Position', 'Team', 'Points'],
-        data: [
-            ['1', 'CSE', '0'],
-            ['2', 'ECE', '0'],
-            ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
-            ['5', 'CE', '0'],
-            ['6', 'MME', '0'],
-            ['7', 'ME', '0'],
-            ['8', 'PG', '0']
-        ]
-    }
-};
-
-export const athleticsHighJump = {
-    pointsTable: {
-        headings: ['Position', 'Team', 'Points'],
-        data: [
-            ['1', 'CSE', '0'],
-            ['2', 'ECE', '0'],
-            ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
-            ['5', 'CE', '0'],
-            ['6', 'MME', '0'],
-            ['7', 'ME', '0'],
-            ['8', 'PG', '0']
-        ]
-    }
-};
-
-export const athleticsShotPut = {
-    pointsTable: {
-        headings: ['Position', 'Team', 'Points'],
-        data: [
-            ['1', 'CSE', '0'],
-            ['2', 'ECE', '0'],
-            ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
-            ['5', 'CE', '0'],
-            ['6', 'MME', '0'],
-            ['7', 'ME', '0'],
-            ['8', 'PG', '0']
-        ]
-    }
-};
-
-export const athleticsJavelinThrow = {
-    pointsTable: {
-        headings: ['Position', 'Team', 'Points'],
-        data: [
-            ['1', 'CSE', '0'],
-            ['2', 'ECE', '0'],
-            ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
-            ['5', 'CE', '0'],
-            ['6', 'MME', '0'],
-            ['7', 'ME', '0'],
-            ['8', 'PG', '0']
-        ]
-    }
-};
-
-export const athletics4x100mRelay = {
-    pointsTable: {
-        headings: ['Position', 'Team', 'Points'],
-        data: [
-            ['1', 'CSE', '0'],
-            ['2', 'ECE', '0'],
-            ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -182,7 +102,7 @@ export const athletics4x400mRelay = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '10'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -198,7 +118,7 @@ export const athleticsCrossCountry = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -214,7 +134,7 @@ export const athletics3000m = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -230,7 +150,7 @@ export const athleticsTugOfWar = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -246,7 +166,7 @@ export const athleticsTripleJump = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
@@ -262,7 +182,87 @@ export const athleticsMedley = {
             ['1', 'CSE', '0'],
             ['2', 'ECE', '0'],
             ['3', 'EE', '0'],
-            ['4', 'PIE-ECM', '0'],
+            ['4', 'PIE+ECM', '0'],
+            ['5', 'CE', '0'],
+            ['6', 'MME', '0'],
+            ['7', 'ME', '0'],
+            ['8', 'PG', '0']
+        ]
+    }
+};
+
+export const athleticsLongJump = {
+    pointsTable: {
+        headings: ['Position', 'Team', 'Points'],
+        data: [
+            ['1', 'CSE', '0'],
+            ['2', 'ECE', '0'],
+            ['3', 'EE', '0'],
+            ['4', 'PIE+ECM', '0'],
+            ['5', 'CE', '0'],
+            ['6', 'MME', '0'],
+            ['7', 'ME', '0'],
+            ['8', 'PG', '0']
+        ]
+    }
+};
+
+export const athleticsHighJump = {
+    pointsTable: {
+        headings: ['Position', 'Team', 'Points'],
+        data: [
+            ['1', 'CSE', '0'],
+            ['2', 'ECE', '0'],
+            ['3', 'EE', '0'],
+            ['4', 'PIE+ECM', '0'],
+            ['5', 'CE', '0'],
+            ['6', 'MME', '0'],
+            ['7', 'ME', '0'],
+            ['8', 'PG', '0']
+        ]
+    }
+};
+
+export const athleticsShotPut = {
+    pointsTable: {
+        headings: ['Position', 'Team', 'Points'],
+        data: [
+            ['1', 'CSE', '0'],
+            ['2', 'ECE', '0'],
+            ['3', 'EE', '0'],
+            ['4', 'PIE+ECM', '0'],
+            ['5', 'CE', '0'],
+            ['6', 'MME', '0'],
+            ['7', 'ME', '0'],
+            ['8', 'PG', '0']
+        ]
+    }
+};
+
+export const athleticsJavelinThrow = {
+    pointsTable: {
+        headings: ['Position', 'Team', 'Points'],
+        data: [
+            ['1', 'CSE', '0'],
+            ['2', 'ECE', '0'],
+            ['3', 'EE', '0'],
+            ['4', 'PIE+ECM', '0'],
+            ['5', 'CE', '0'],
+            ['6', 'MME', '0'],
+            ['7', 'ME', '0'],
+            ['8', 'PG', '0']
+        ]
+    }
+};
+
+export const athletics4x100mRelay = {
+    pointsTable: {
+        headings: ['Position', 'Team', 'Points'],
+        data: [
+            ['1', 'CSE', '0'],
+            ['2', 'ECE', '0'],
+            ['3', 'EE', '0'],
+            ['4', 'PIE+ECM', '0'],
             ['5', 'CE', '0'],
             ['6', 'MME', '0'],
             ['7', 'ME', '0'],
