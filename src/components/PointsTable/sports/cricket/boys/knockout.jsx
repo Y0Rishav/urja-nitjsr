@@ -5,6 +5,8 @@ export const tableTennisBoysKnockout = {
         {
             name: "Semi-finals",
             matches: [
+                { id: "SF1", team1: "CSE", team2: "MME", winner: "", score1: "", score2: "" },
+                { id: "SF2", team1: "PIE+ECM", team2: "ECE", winner: "", score1: "", score2: "" },
                 { id: 'SF1', date: '13 December', venue: 'TSG', team1: 'PIE+ECM', score1: '', team2: 'MME', score2: '', winner: '' },
                 { id: 'SF2', date: '14 December', venue: 'TSG', team1: 'CSE', score1: '', team2: 'ECE', score2: '', winner: '' },
             ]
