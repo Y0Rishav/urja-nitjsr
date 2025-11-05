@@ -12,7 +12,7 @@ export const tableTennisBoysKnockout = {
         {
             name: "Final",
             matches: [
-                { id: 'F1', date: '7 November', venue: 'Downs Ground', team1: 'CSE', score1: '', score1_pen: '', team2: 'ECE', score2: '', score2_pen: '', winner: '' }
+                { id: 'F1', date: '6 November', venue: 'Downs Ground', team1: 'CSE', score1: '', score1_pen: '', team2: 'ECE', score2: '', score2_pen: '', winner: '' }
             ]
         }
     ],
