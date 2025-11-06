@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import './PointsTable.css';
 
 // NOTE: Ensure your actual data files are in place in your project's file system 
-// (e.g., ./sports/lawn-tennis/boys/pool-a.jsx). 
-// The mock data function and constants have been removed to use your dynamic imports.
 
 const sportsDataMap = {
     'Athletics': {
@@ -64,7 +62,6 @@ const sportsDataMap = {
         genders: ['Boys', 'Girls'],
         pools: {
             'Boys': ['Pool A', 'Pool B'],
-            'Girls': ['Pool A', 'Pool B']
         },
         stages: ['Group Stage', 'Knockout']
     },
@@ -233,12 +230,36 @@ function KnockoutBracket({ data }) {
         return <p className="no-data-message">No knockout bracket data available for this selection.</p>;
     }
 
-    // 💡 Determine if Semi-finals round exists and has matches
     const semiFinals = data.rounds.find(round => round.name === "Semi-finals");
     const hasSemiFinals = semiFinals && semiFinals.matches && semiFinals.matches.length > 0;
 
     const finalRound = data.rounds.find(round => round.name === "Final");
+    const finalMatch = finalRound?.matches[0]; // Assuming only one final match
     const thirdPlaceMatch = data.thirdPlace?.match;
+
+    // --- Dynamic Winner Determination Logic ---
+    let winnerTeam = 'TBD';
+
+    if (finalMatch) {
+        // 1. Check for explicit winner tag
+        if (finalMatch.winner && finalMatch.winner !== 'TBD' && finalMatch.winner !== '') {
+            winnerTeam = finalMatch.winner;
+        }
+        // 2. Fallback: Determine winner based on score comparison
+        else if (finalMatch.score1 !== '' && finalMatch.score2 !== '') {
+            const score1 = parseInt(finalMatch.score1, 10);
+            const score2 = parseInt(finalMatch.score2, 10);
+
+            if (score1 > score2) {
+                winnerTeam = finalMatch.team1;
+            } else if (score2 > score1) {
+                winnerTeam = finalMatch.team2;
+            }
+        }
+        // If scores are blank or match is TBD, it remains 'TBD'
+    }
+    // --- End Dynamic Winner Determination ---
+
 
     return (
         <div className="knockout-bracket-container complex-flow">
@@ -248,24 +269,23 @@ function KnockoutBracket({ data }) {
                 {/* 1. Semi-finals Column (Conditional) */}
                 {hasSemiFinals && (
                     <div className="bracket-round semi-finals-round">
-                        <h3 className="round-heading">Semi-finals</h3>
+                        <h3 className="round-heading semi-finals-heading">SEMI-FINALS</h3>
                         <div className="round-matches">
-                            {semiFinals.matches.map((match, index) => (
-                                <div key={match.id} className={`bracket-match match-${index + 1}`}>
-                                    {/* Match date and venue */}
+                            {semiFinals.matches.map((match) => (
+                                <div key={match.id} className="bracket-match semi-final-match">
                                     <p className="match-info">{match.date} - {match.venue}</p>
-                                    {/* Team 1 */}
+
                                     {match.team1 && (
                                         <div className="bracket-team">
                                             <span className="team-name">{match.team1}</span>
-                                            <span className="team-score">{match.score1}</span>
+                                            <span className="team-score score-top">{match.score1}</span>
                                         </div>
                                     )}
-                                    {/* Team 2 */}
+
                                     {match.team2 && (
                                         <div className="bracket-team">
                                             <span className="team-name">{match.team2}</span>
-                                            <span className="team-score">{match.score2}</span>
+                                            <span className="team-score score-bottom">{match.score2}</span>
                                         </div>
                                     )}
                                 </div>
@@ -274,65 +294,68 @@ function KnockoutBracket({ data }) {
                     </div>
                 )}
 
-                {/* 2. Vertical Space/Connector Area (Conditional) */}
-                {hasSemiFinals && (
-                    <div className="bracket-connectors spacer-area">
-                        {/* Pseudo-elements in CSS draw the T-shaped connector here */}
-                    </div>
-                )}
 
-                {/* 3. Final Column (Always renders if data exists) */}
-                <div className="bracket-round final-round">
-                    <h3 className="round-heading">Final</h3>
-                    <div className="round-matches">
-                        {/* Final Match */}
-                        {finalRound?.matches.map((match) => (
-                            <div key={match.id} className="bracket-match final-match">
-                                <p className="match-info">{match.date} - {match.venue}</p>
-                                {match.team1 && (
+                {/* 2. Finals and Third Place Column (Combined) */}
+                <div className="bracket-round final-stage-column">
+
+                    {/* Final Match Block */}
+                    {finalMatch && (
+                        <div className="final-match-block">
+                            <h3 className="round-heading final-heading">FINAL</h3>
+                            <div key={finalMatch.id} className="bracket-match final-match">
+                                <p className="match-info">{finalMatch.date} - {finalMatch.venue}</p>
+                                {finalMatch.team1 && (
                                     <div className="bracket-team">
-                                        <span className="team-name">{match.team1}</span>
-                                        <span className="team-score">
-                                            {match.score1} {match.score1_pen ? `(${match.score1_pen})` : ''}
-                                        </span>
+                                        <span className="team-name">{finalMatch.team1}</span>
+                                        <span className="team-score score-top">{finalMatch.score1}</span>
                                     </div>
                                 )}
-                                {match.team2 && (
+                                {finalMatch.team2 && (
                                     <div className="bracket-team">
-                                        <span className="team-name">{match.team2}</span>
-                                        <span className="team-score">
-                                            {match.score2} {match.score2_pen ? `(${match.score2_pen})` : ''}
-                                        </span>
+                                        <span className="team-name">{finalMatch.team2}</span>
+                                        <span className="team-score score-bottom">{finalMatch.score2}</span>
                                     </div>
                                 )}
                             </div>
-                        ))}
+                        </div>
+                    )}
 
-                        {/* Third Place Play-off (Heading outside the box) */}
-                        {thirdPlaceMatch && (
-                            <>
-                                <h4 className="round-heading third-place-heading">Third Place</h4>
-                                <div className="bracket-match third-place-match">
-                                    <p className="match-info">{thirdPlaceMatch.date} - {thirdPlaceMatch.venue}</p>
-                                    {thirdPlaceMatch.team1 && (
-                                        <div className="bracket-team">
-                                            <span className="team-name">{thirdPlaceMatch.team1}</span>
-                                            <span className="team-score">{thirdPlaceMatch.score1}</span>
-                                        </div>
-                                    )}
-                                    {thirdPlaceMatch.team2 && (
-                                        <div className="bracket-team">
-                                            <span className="team-name">{thirdPlaceMatch.team2}</span>
-                                            <span className="team-score">{thirdPlaceMatch.score2}</span>
-                                        </div>
-                                    )}
-                                </div>
-                            </>
-                        )}
-                    </div>
+                    {/* Third Place Match Block */}
+                    {thirdPlaceMatch && (
+                        <div className="third-place-match-block">
+                            <h3 className="round-heading third-place-heading">THIRD PLACE</h3>
+                            <div className="bracket-match third-place-match">
+                                <p className="match-info">{thirdPlaceMatch.date} - {thirdPlaceMatch.venue}</p>
+                                {thirdPlaceMatch.team1 && (
+                                    <div className="bracket-team">
+                                        <span className="team-name">{thirdPlaceMatch.team1}</span>
+                                        <span className="team-score score-top">{thirdPlaceMatch.score1}</span>
+                                    </div>
+                                )}
+                                {thirdPlaceMatch.team2 && (
+                                    <div className="bracket-team">
+                                        <span className="team-name">{thirdPlaceMatch.team2}</span>
+                                        <span className="team-score score-bottom">{thirdPlaceMatch.score2}</span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
-            </div>
 
+                {/* 3. Champions Column */}
+                {finalMatch && (
+                    <div className="bracket-round winner-column">
+                        <h3 className="round-heading">CHAMPIONS</h3>
+                        <div className="winner-box">
+                            <div className="winner-content">
+                                {/* Displays TBD or the determined winner name */}
+                                <span className="winner-team-name">{winnerTeam}</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
         </div>
     );
 }
@@ -408,6 +431,7 @@ function PointsTable() {
                     });
                     dataKey = module ? Object.keys(module)[0] : '';
                 } else { // Knockout Stage
+                    // NOTE: Assuming tableTennis data will be imported here based on your file path comment
                     module = await import(`./sports/${sportFolderPath}/${genderFolderPath}/knockout.jsx`).catch(e => {
                         console.error("Knockout import failed:", e);
                         return null;

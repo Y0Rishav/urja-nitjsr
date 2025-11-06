@@ -24,16 +24,12 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(
-      circle at 80% 20%,
+  background: radial-gradient(circle at 80% 20%,
       rgba(255, 60, 0, 0.2) 0,
-      transparent 80%
-    ),
-    radial-gradient(
-      circle at 20% 80%,
+      transparent 80%),
+    radial-gradient(circle at 20% 80%,
       rgba(0, 207, 255, 0.2) 0,
-      transparent 80%
-    );
+      transparent 80%);
   z-index: 0;
 }
 
@@ -158,12 +154,12 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
 }
 
-.sport-radio-input:checked + .sport-radio-text {
+.sport-radio-input:checked+.sport-radio-text {
   color: #ffaa00;
   text-shadow: 0 0 15px rgba(255, 170, 0, 0.8);
 }
 
-.sport-radio-input:checked ~ .sport-radio-label {
+.sport-radio-input:checked~.sport-radio-label {
   background: linear-gradient(90deg, #5f281c, #ff6600);
   border-color: #ff8800;
   transform: translateY(0);
@@ -316,11 +312,9 @@
   max-width: 1200px;
   margin-top: 2rem;
   padding: 3.5rem;
-  background: linear-gradient(
-    135deg,
-    rgba(20, 20, 20, 0.7),
-    rgba(0, 0, 0, 0.8)
-  );
+  background: linear-gradient(135deg,
+      rgba(20, 20, 20, 0.7),
+      rgba(0, 0, 0, 0.8));
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -487,11 +481,9 @@ tbody tr:hover td {
   max-width: 1200px;
   margin-top: 2rem;
   padding: 2.5rem 2rem;
-  background: linear-gradient(
-    135deg,
-    rgba(20, 20, 20, 0.7),
-    rgba(0, 0, 0, 0.8)
-  );
+  background: linear-gradient(135deg,
+      rgba(20, 20, 20, 0.7),
+      rgba(0, 0, 0, 0.8));
   border-radius: 20px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -505,17 +497,16 @@ tbody tr:hover td {
   min-height: 400px;
 }
 
-/* Wrapper for Semi-finals and Final columns */
+/* Wrapper for Semi-finals, Final/Third, and Winner columns */
 .bracket-main-flow {
   display: flex;
-  align-items: center;
-  /* Ensure top alignment of rounds */
-  /* justify-content: center; */
+  /* Use flexbox to align all columns side-by-side */
+  align-items: flex-start;
+  /* CRITICAL: Start alignment from the top */
+  justify-content: center;
   gap: 40px;
-  /* Gap between columns */
   position: relative;
   padding-top: 20px;
-  /* Space for the line at the top */
 }
 
 .round-heading {
@@ -537,21 +528,22 @@ tbody tr:hover td {
   border-image-slice: 1;
 }
 
+/* 💡 Style for the Semi-Finals Heading */
+.semi-finals-round .round-heading {
+  border-image: linear-gradient(to right, #00cfff, #ffaa00) 1;
+}
+
+/* 💡 Style for the Final Heading */
+.final-stage-column .final-match-block .round-heading {
+  border-image: linear-gradient(to right, #ffaa00, #00cfff) 1;
+}
+
 /* 💡 New style for the extracted Third Place Heading */
 .round-heading.third-place-heading {
-  /* Inherits round-heading styles */
   font-size: 1.2rem;
-  /* Slightly smaller than main rounds */
-  /* color: #ffaa00; */
-  /* Accent color */
-  /* border-image: linear-gradient(to right, #ffaa00, #ff8800); */
-  border-image-slice: 1;
   margin-top: 30px;
-  /* Space above the heading to separate from the Final match */
   margin-bottom: 10px;
-  /* Space below the heading before the match box */
   min-width: 220px;
-  /* Match the final round width */
 }
 
 .bracket-round {
@@ -559,13 +551,13 @@ tbody tr:hover td {
   flex-direction: column;
   align-items: center;
   min-width: 220px;
-  /* Adjusted width for matches */
   flex-shrink: 0;
   margin: 0;
 }
 
-/* ⚠️ IMPORTANT CHANGE: Remove vertical offset from final round */
-.bracket-round.final-round {
+/* This column holds the Final Match and Third Place Match */
+.final-stage-column {
+  /* RESET: Set margin to 0 for top alignment, matching Semi-finals and Champions */
   margin-top: 0;
 }
 
@@ -574,7 +566,6 @@ tbody tr:hover td {
   display: flex;
   flex-direction: column;
   gap: 0;
-  /* Gap between elements inside round-matches is now controlled by margins */
 }
 
 /* Individual Match Box */
@@ -583,9 +574,8 @@ tbody tr:hover td {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 10px 15px;
-  /* ⚠️ IMPORTANT CHANGE: Increased margin-bottom for semi-final matches */
   margin-bottom: 60px;
-  /* Adjust to correctly position the vertical line */
+  /* Gap between semi-final matches */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease-in-out;
   min-height: 80px;
@@ -596,23 +586,27 @@ tbody tr:hover td {
   text-align: left;
 }
 
-/* This targets only the LAST semi-final match to remove its bottom margin,
-   so it doesn't push the bracket line too far down. */
+/* Targets the LAST semi-final match to remove its bottom margin */
 .bracket-round.semi-finals-round .round-matches .bracket-match:last-child {
   margin-bottom: 0;
 }
 
-/* Third Place Match Styling */
-.bracket-match.third-place-match {
-  /* We now rely on the heading's margin-top for spacing, reset this margin */
-  margin-top: 0;
-  margin-bottom: 0;
-  /* border: 1px solid #ffaa00;
-    /* Accent border for 3rd place match */
-  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 170, 0, 0.4); */
+/* Final Match Block */
+.final-match-block {
+  margin-bottom: 20px;
+  /* Space above the third place area */
 }
 
-/* ⚠️ REMOVED old .third-place-heading since we use the H4 now (round-heading style) */
+.bracket-match.final-match {
+  margin-bottom: 0;
+  /* Remove margin from final match box */
+}
+
+/* Third Place Match Styling */
+.bracket-match.third-place-match {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 /* Match Details */
 .match-info {
@@ -653,10 +647,9 @@ tbody tr:hover td {
   text-shadow: 0 0 10px rgba(255, 170, 0, 0.7);
 }
 
-/* Connector Styling */
+/* Connector Styling - Used between Semi-Finals and Final/Third Place */
 .bracket-connectors.spacer-area {
-  width: 60px;
-  /* Fixed width for separation */
+  width: 40px;
   height: 100%;
   position: relative;
   padding-top: 20px;
@@ -666,24 +659,98 @@ tbody tr:hover td {
   /* Vertical line */
   content: "";
   position: absolute;
-  height: calc(100% - 160px);
+  height: 100%;
   width: 2px;
   background-color: #555;
-  top: 60px;
-  left: 1px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .bracket-connectors.spacer-area::after {
-  /* Horizontal line (at the center) */
+  /* Horizontal line */
   content: "";
   position: absolute;
   width: 100%;
   height: 2px;
   background-color: #555;
-  top: calc(50% - 20px);
+  /* Aligns with the center of the gap between semi-final matches */
+  top: calc(60px + 80px);
   left: 0;
-  transform: translateY(-50%);
+  z-index: 2;
 }
+
+
+/* ---------------------------------------------------------------------- */
+/* 🏆 WINNER COLUMN STYLES 🏆 */
+/* ---------------------------------------------------------------------- */
+
+.winner-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 220px;
+  flex-shrink: 0;
+}
+
+/* Alignment space is removed because we are aligning everything to the top */
+.winner-space-align {
+  display: none;
+}
+
+/* Re-use standard round heading for 'CHAMPIONS' title */
+.winner-column .round-heading {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  border-image: linear-gradient(to right, #ffcc00, #ffaa00) 1;
+  text-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
+}
+
+.winner-box {
+  background: rgba(30, 30, 30, 0.7);
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  border: 2px solid #ffcc00;
+  /* Gold highlight border */
+  text-align: center;
+  position: relative;
+  min-height: 80px;
+  /* Ensure height matches match boxes */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Remove medal icon/pseudo-element */
+.winner-box::before {
+  content: none;
+}
+
+.winner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* Only the team name inside the box */
+.winner-team-name {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #ffcc00;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 170, 0, 0.9);
+  margin: 0;
+  padding: 0;
+}
+
+
+/* ---------------------------------------------------------------------- */
+/* Media Queries (Mobile) */
+/* ---------------------------------------------------------------------- */
 
 @media (max-width: 768px) {
   .main-points-heading {
@@ -742,45 +809,48 @@ tbody tr:hover td {
   }
 
   .scoreboard-container {
-    width: 99%;
+    width: 100%;
     padding: 2.5rem;
     margin-bottom: 3rem;
   }
 
   /* 👇 CRITICAL CHANGE: ROW-WISE for Knockout on small screens 👇 */
-  /* Knockout adjustments (Stack horizontally) */
+
   .knockout-bracket-container.complex-flow {
     flex-direction: row;
-    /* CHANGED to ROW for horizontal alignment */
-    align-items: center;
-    /* You might need to adjust width/padding for the row layout to fit on small screens */
+    align-items: flex-start;
+    /* CRITICAL: Align top for mobile scrolling */
     padding: 10px;
     min-height: auto;
     overflow-x: auto;
-    /* IMPORTANT: Allows scrolling if the row is wider than the screen */
+    /* Enables Horizontal Scrolling */
     justify-content: flex-start;
-    /* Ensures content starts from the left */
+    width: 100%;
+    /* Important for overflow to work */
   }
 
   .bracket-main-flow {
     flex-direction: row;
-    /* CHANGED to ROW for horizontal alignment */
-    gap: 50px;
+    /* CRITICAL: Force a wide element so overflow-x: auto works on the parent */
+    min-width: 800px;
+    gap: 30px;
     padding: 20px;
   }
 
   .bracket-round {
-    /* You might need to reduce the width of the rounds so they fit better in a row on mobile */
-    min-width: 150px;
+    min-width: 140px;
     flex-shrink: 0;
-    /* Prevents rounds from shrinking too much */
     margin: 0;
   }
 
   .bracket-round.final-round {
     margin-top: 0;
-    /* Reset */
   }
+
+  .final-stage-column {
+    margin-top: 0;
+  }
+
 
   /* Connectors can be shown if needed for horizontal layout, but usually hidden on mobile */
   .bracket-connectors.spacer-area {
@@ -790,5 +860,18 @@ tbody tr:hover td {
   .bracket-connectors.spacer-area::before,
   .bracket-connectors.spacer-area::after {
     content: none;
+  }
+
+  .winner-space-align {
+    display: none;
+  }
+
+  .winner-box {
+    width: 140px;
+    padding: 15px;
+  }
+
+  .winner-team-name {
+    font-size: 1.4rem;
   }
 }
