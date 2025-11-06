@@ -1,7 +1,7 @@
 /* ===== Managers Section (Compact & Centered) ===== */
 
 .main-team-heading {
-  font-size: 5rem;
+  font-size: clamp(1.8rem, 5vw + 1rem, 4rem); /* ✅ scales dynamically */
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
@@ -11,16 +11,31 @@
     0 0 30px rgba(0, 170, 255, 0.8), 2px 2px 0px rgba(255, 106, 0, 0.6),
     -2px -2px 0px rgba(0, 199, 255, 0.6), 4px 4px 0px rgba(255, 45, 0, 0.4),
     -4px -4px 0px rgba(30, 144, 255, 0.4);
-  letter-spacing: 5px;
+  letter-spacing: clamp(
+    1px,
+    0.5vw + 1px,
+    5px
+  ); /* ✅ reduce letter spacing on small screens */
   -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
   animation: teamGlow 3s ease-in-out infinite alternate,
     hyperspeedLines 2s linear infinite;
   position: relative;
   z-index: 1;
+  word-break: break-word; /* ✅ ensures long text wraps */
+  overflow-wrap: break-word;
+}
+
+/* Optional fine-tuning for mobile screens */
+@media (max-width: 600px) {
+  .main-team-heading {
+    line-height: 1.1;
+    padding: 0 1rem;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .mgr-wrap {
-  padding: 1rem 1rem 5rem;
+  padding: 2rem 1rem 5rem;
   background: radial-gradient(
       1200px 600px at 10% -10%,
       rgba(255, 255, 255, 0.06),
