@@ -52,10 +52,10 @@ export default function Home() {
           <div className="hero-buttons">
             <button
               className="hero-btn-primary"
-              onClick={() => handleNavigate("/sports")}
-              aria-label="Go to Sports page"
+              onClick={() => handleNavigate("/Branch-Leaderboard")}
+              aria-label="Go to Branch Leaderboard page"
             >
-              Sports <ArrowRight className="icon" />
+              Branch Leaderboard <ArrowRight className="icon" />
             </button>
 
             <button
