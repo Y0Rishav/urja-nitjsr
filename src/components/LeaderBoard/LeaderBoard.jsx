@@ -4,12 +4,12 @@ import Footer from '../Footer/Footer.jsx';
 // --- RAW DATA: totalPoints is now often 0 in the source, as it will be calculated ---
 const teamsData = [
   {
-    name: "ECM+PIE",
+    name: "PIE+ECM",
     totalPoints: 0, // Not Needed
     breakdown: {
       Athletics: 0,
       Badminton: 5,
-      Carrom: 0,
+      Carrom: 2,
       Chess: 0,
       Cricket: 0,
       Football: 0,
@@ -41,7 +41,7 @@ const teamsData = [
     breakdown: {
       Athletics: 0,
       Badminton: 10.5,
-      Carrom: 0,
+      Carrom: 1,
       Chess: 5,
       Cricket: 10,
       Football: 0,
@@ -89,7 +89,7 @@ const teamsData = [
     breakdown: {
       Athletics: 0,
       Badminton: 5,
-      Carrom: 0,
+      Carrom: 3,
       Chess: 3.5,
       Cricket: 0,
       Football: 0,
