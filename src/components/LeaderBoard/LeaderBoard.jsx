@@ -103,7 +103,7 @@ const teamsData = [
     name: "EE",
     totalPoints: 0, // Not Needed
     breakdown: {
-      Athletics: 3,
+      Athletics: 4,
       Badminton: 10,
       Carrom: 0,
       Chess: 10,
@@ -119,7 +119,7 @@ const teamsData = [
     name: "PG",
     totalPoints: 0, // Not Needed
     breakdown: {
-      Athletics: 17,
+      Athletics: 25,
       Badminton: 0,
       Carrom: 0,
       Chess: 8.5,
