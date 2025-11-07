@@ -23,7 +23,7 @@ const teamsData = [
     name: "CSE",
     totalPoints: 0,// Not Needed
     breakdown: {
-      Athletics: 4,
+      Athletics: 7,
       Badminton: 0,
       Carrom: 0,
       Chess: 7,
@@ -55,7 +55,7 @@ const teamsData = [
     name: "CE",
     totalPoints: 0, // Not Needed
     breakdown: {
-      Athletics: 25,
+      Athletics: 35,
       Badminton: 5,
       Carrom: 0,
       Chess: 0,
@@ -71,7 +71,7 @@ const teamsData = [
     name: "MME",
     totalPoints: 0, // Not Needed
     breakdown: {
-      Athletics: 10,
+      Athletics: 11,
       Badminton: 3.5,
       Carrom: 0,
       Chess: 5,
@@ -87,7 +87,7 @@ const teamsData = [
     name: "ME",
     totalPoints: 0, // Not Needed
     breakdown: {
-      Athletics: 6,
+      Athletics: 10,
       Badminton: 5,
       Carrom: 3,
       Chess: 3.5,
