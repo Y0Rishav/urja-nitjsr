@@ -13,7 +13,7 @@ const footballBoysKnockout = {
         {
             name: "Final",
             matches: [
-                { id: 'F1', date: '7 November', venue: 'CD Ground', team1: 'PG', score1: '', score1_pen: '', team2: 'PIE+ECM', score2: '', score2_pen: '', winner: '' }
+                { id: 'F1', date: '7 November', venue: 'CD Ground', team1: 'PG', score1: '0', score1_pen: '', team2: 'PIE+ECM', score2: '1', score2_pen: '', winner: 'PIE+ECM' }
             ]
         }
     ],
