@@ -95,7 +95,7 @@ function Navbar() {
         </li>
         <li style={{ "--item-index": 2 }}>
           <Link to="/managers" onClick={closeMenu} className={location.pathname === "/managers" ? "active" : ""}>
-            <span className="nav-text">Managers</span>
+            <span className="nav-text">Contributors</span>
             <span className="nav-glow"></span>
           </Link>
         </li>

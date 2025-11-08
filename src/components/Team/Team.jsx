@@ -168,6 +168,8 @@ function Team() {
                                 src={`/supercore/${member.image}`}
                                 alt={member.name}
                                 className="member-image"
+                                loading="lazy"
+                                onError={(e) => { e.currentTarget.onerror = null; e.currentTarget.src = '/supercore/priyanshu_dev.jpg'; }}
                             />
                             <div className="card-overlay"></div>
                         </div>
